@@ -5,7 +5,7 @@ export SOURCE_PATH='/opt/source'
 export BINARY_PATH=$(dirname "$0")
 
 source $BINARY_PATH/source.sh
-source $BINARY_PATH/bump.sh
+source $BINARY_PATH/version_bumper.sh
 
 printf "\n\n" | git flow init
 
