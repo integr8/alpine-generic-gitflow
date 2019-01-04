@@ -1,7 +1,11 @@
+[user]
+  email = bot@integr8.me
+  name = Integr8
+
 [gitflow "branch"]
   master = master
   develop = development
-  
+
 [gitflow "prefix"]
   feature = feature/
   bugfix = bugfix/
