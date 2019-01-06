@@ -1,11 +1,12 @@
 #!/bin/bash
 # set -e
 
-: ${FILE_PATH:="package.json"}
+: ${FILE_NAME:="package.json"}
+: ${SOURCE_PATH:=""}
 
 change_version(){
-    cat $FILE_PATH | jq ".version = \"$1\"" > bumped.json
-    mv bumped.json package.json
+    cat $SOURCE_PATH/$FILE_NAME | jq ".version = \"$1\"" > $SOURCE_PATH/bumped.json
+    mv $SOURCE_PATH/bumped.json $SOURCE_PATH/package.json
 }
 
 change_version $1
