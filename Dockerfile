@@ -9,6 +9,7 @@ RUN apk add --no-cache --virtual .buildeps gcc libxml2-dev libxslt-dev libc-dev 
 
 COPY files/script/*.sh /usr/local/bin/ctn/
 COPY files/script/wrapper/ /usr/local/bin/ctn/wrapper
+COPY files/script/strategy/ /usr/local/bin/ctn/strategy
 COPY files/gitconfig /etc/
 
 RUN chmod +x /usr/local/bin/ctn/entrypoint.sh
