@@ -2,30 +2,30 @@
 # set -e
 
 : ${FILE_NAME:="pom.xml"}
+: ${POM_PATH:=$(dirname $0)}
 new_version=$1
 change_version(){
 
-    cat $FILE_NAME | xq --xml-output -r ".project.version = \"$new_version\"" > "$pom_path/new_pom.xml"
+    echo "POM_PATH:$POM_PATH/$FILE_NAME"
+    cat "$POM_PATH/$FILE_NAME" | xq --xml-output -r ".project.version = \"$new_version\"" > $POM_PATH/new_pom.xml
+    mv $POM_PATH/new_pom.xml $POM_PATH/pom.xml
 
-    check_for_submodules
+    check_for_submodules $POM_PATH/$FILE_NAME
 }
 
 check_for_submodules(){
-    for row in $(cat $FILE_NAME | xq -r '.project.modules[]' | jq -r .[]); do
-        check_for_submodules $row
+    for row in $(cat $1 | xq -r '.project.modules[]?' | jq -r '.[]?'); do
+        modify_submodule $(dirname $1)/$row/$FILE_NAME
+        check_for_submodules $(dirname $1)/$row/$FILE_NAME
     done
 }
 
-modify_file(){
-    if [ -z "$1" ]; then
-        pom_path=""
-    else
-        pom_path=$1
-    fi
-
-    echo $pom_path
-
-    cat $pom_path/$FILE_NAME | xq --xml-output -r ".project.version = \"$new_version\"" > "$pom_path/new_pom.xml"
+modify_submodule(){
+    pom_path=$1
+    echo "Modifying: $pom_path"
+    cat $1 | xq --xml-output -r ".project.parent.version = \"$new_version\"" > $(dirname $1)/new_pom.xml
+    mv $(dirname $1)/new_pom.xml $(dirname $1)/pom.xml
 }
+
 
 change_version $1
