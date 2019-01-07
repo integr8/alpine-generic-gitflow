@@ -3,7 +3,7 @@ set -e
 
 : ${CANDIDATE_PREFIX:='rc'}
 : ${TAG_PREFIX:=''}
-: ${BUMP_MODE:='candidate'}
+: ${BUMP_MODE? 'É necessário informar um tipo de bump: MAJOR, MINOR, PATCH ou CANDIDATE'}
 
 PATTERN="^${TAG_PREFIX}([0-9]{1,}\.[0-9]{1,}\.[0-9]{1,})\$"
 
@@ -11,7 +11,12 @@ get_latest_tag() {
   TAGS=$(for tag in $(git tag); do
     [[ "$tag" =~ $PATTERN ]] && echo "${BASH_REMATCH[0]}"
   done)
-  [[ ! -z "$TAGS" ]] &&  echo "$TAGS" | tr '.' ' ' | sort -nr -k1 -k2 -k3 | tr ' ' '.' | head -1
+
+  if [[ ! -z "$TAGS" ]] ; then
+    echo "$TAGS" | tr '.' ' ' | sort -nr -k1 -k2 -k3 | tr ' ' '.' | head -1
+  else
+    echo '0.0.0'
+  fi
 }
 
 get_latest_release_candidate_tag() {
@@ -27,8 +32,8 @@ get_release_candidate() {
     echo $last_release_candidate_tag | awk -v mode="$BUMP_MODE" 'match($0, /'${CANDIDATE_PREFIX}'\.([0-9])/, matches) {   
       printf("%s%d", "'$current_release_version'-rc.", matches[1]+1 )  
     }'
-  # else
-  #   echo "${current_release_version}-rc.1"
+  else
+    echo "${current_release_version}-rc.1"
   fi
 }
 
@@ -43,7 +48,7 @@ increment_tag_version() {
    }')
 }
 
-bump() {
+get_version() {
   if [[ "${BUMP_MODE}" != "candidate" ]]; then
     next_version=$(get_latest_tag)
   else

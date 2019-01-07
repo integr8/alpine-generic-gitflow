@@ -17,7 +17,6 @@ if [ "$SOURCE_METHOD" == 'GIT' ]; then
     git clone --progress --verbose ${GIT_URL} $SOURCE_PATH
 
 elif [ "$SOURCE_METHOD" == 'VOLUME' ]; then
-
     if [ ! -d "$SOURCE_PATH" ]; then
         echo 'Foi informado que o código fonte seria provido por um volume, mas o diretório não existe'
     fi

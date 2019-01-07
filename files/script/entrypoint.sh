@@ -1,14 +1,14 @@
 #!/bin/bash
-set -e
+
+PATH=$PATH:~/.local/bin
 
 export SOURCE_PATH='/opt/source'
 export BINARY_PATH=$(dirname "$0")
 
 . $BINARY_PATH/source.sh
 . $BINARY_PATH/version_bumper.sh
-. $BINARY_PATH/strategy.sh
 
-printf "\n\n" | git flow init
+printf "\n\n" | git-flow init
 
 case $1 in
   feature) echo feature ;;
