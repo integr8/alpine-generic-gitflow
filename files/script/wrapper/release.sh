@@ -12,7 +12,9 @@ if [[ "${SUBCOMMAND}" == 'start' ]]; then
 fi
 
 if [[ "${SUBCOMMAND}" == 'finish' ]]; then
-  git-flow release finish
+  export GIT_MERGE_AUTOEDIT=no
+  git-flow release finish -p -m 'Finishing release'
+  unset GIT_MERGE_AUTOEDIT
 fi
 
 

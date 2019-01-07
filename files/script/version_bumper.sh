@@ -24,7 +24,7 @@ get_latest_release_candidate_tag() {
   echo $(get_latest_tag)
 }
 
-get_release_candidate() {
+increment_candidate() {
   current_release_version=$(git symbolic-ref HEAD  | sed -e 's/.*\///')
   last_release_candidate_tag=$(get_latest_release_candidate_tag)
 
@@ -49,7 +49,7 @@ increment_tag_version() {
 }
 
 get_version() {
-  if [[ "${BUMP_MODE}" != "candidate" ]]; then
+  if [[ "${BUMP_MODE}" != "CANDIDATE" ]]; then
     next_version=$(get_latest_tag)
   else
     next_version=$(get_latest_release_candidate_tag)
