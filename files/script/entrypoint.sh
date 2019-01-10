@@ -8,12 +8,6 @@ export BINARY_PATH=$(dirname "$0")
 . $BINARY_PATH/source.sh
 . $BINARY_PATH/version_bumper.sh
 
-
-echo `get_version`
-exit 0
-
-
-
 printf "\n\n" | git-flow init
 
 case $1 in

@@ -24,12 +24,24 @@ get_latest_release_candidate_tag() {
   echo $(get_latest_tag)
 }
 
+get_current_release_version() {
+  RELEASE_PATTERN="^release/${TAG_PREFIX}([0-9]{1,}\.[0-9]{1,}\.[0-9]{1,})\$"
+
+  for BRANCH in `git branch --list|sed 's/\*//g'`; do
+    [[ "$BRANCH" =~ $RELEASE_PATTERN ]] && echo "${BASH_REMATCH[1]}"
+  done
+}
+
+get_current_release_branch() {
+  echo "release/`get_current_release_version`"
+}
+
 increment_candidate() {
   current_release_version=$(git symbolic-ref HEAD  | sed -e 's/.*\///')
   last_release_candidate_tag=$(get_latest_release_candidate_tag)
 
-  if [[ ! -z "$last_release_candidate_tag"  ]]; then
-    echo $last_release_candidate_tag | awk -v mode="$BUMP_MODE" 'match($0, /'${CANDIDATE_PREFIX}'\.([0-9])/, matches) {   
+  if [[ "$last_release_candidate_tag" != '0.0.0'  ]]; then
+    echo $last_release_candidate_tag | awk -v mode="$BUMP_MODE" 'match($0, /'${CANDIDATE_PREFIX}'\.([0-9]{1,})/, matches) {   
       printf("%s%d", "'$current_release_version'-rc.", matches[1]+1 )  
     }'
   else
@@ -38,7 +50,7 @@ increment_candidate() {
 }
 
 increment_tag_version() {
-  echo $( get_latest_tag | awk -v mode="$BUMP_MODE" 'match($0, /([0-9])\.([0-9])\.([0-9])/, matches) {   
+  echo $( get_latest_tag | gawk -v mode="$BUMP_MODE" 'match($0, /([0-9]{1,})\.([0-9]{1,})\.([0-9]{1,})/, matches) {
     if(mode == "major")
       printf("%d.%d.%d", matches[1]+1, 0, 0)
     else if(mode == "minor")
@@ -50,10 +62,10 @@ increment_tag_version() {
 
 get_version() {
   if [[ "${BUMP_MODE}" != "CANDIDATE" ]]; then
-    next_version=$(get_latest_tag)
+    echo $(increment_tag_version)
   else
-    next_version=$(get_latest_release_candidate_tag)
+    echo $(increment_candidate)
   fi
-
-  echo $next_version
 }
+
+export next_version=`get_version`
