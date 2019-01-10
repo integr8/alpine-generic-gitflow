@@ -4,8 +4,6 @@
 : ${TO_BUMP_FILENAME:="pom.xml"}
 : ${PARENT_POM_PATH:=$SOURCE_PATH}
 
-next_version=`get_version`
-
 change_version(){
   echo "POM_PATH:$PARENT_POM_PATH/$TO_BUMP_FILENAME"
   echo $(cat $PARENT_POM_PATH/$TO_BUMP_FILENAME) | xq  --xml-output -r '.project.version="'$next_version'"' > new_pom.xml
