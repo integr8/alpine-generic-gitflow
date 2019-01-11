@@ -8,10 +8,12 @@ export BINARY_PATH=$(dirname "$0")
 . $BINARY_PATH/source.sh
 . $BINARY_PATH/version_bumper.sh
 
-printf "\n\n" | git-flow init
+printf "\n\n" | git-flow init -f
 
 case $1 in
-  feature) echo feature ;;
+  feature)
+    . $BINARY_PATH/wrapper/feature.sh
+  ;;
   bugfix) echo bugfix ;;
   release)
     . $BINARY_PATH/wrapper/release.sh

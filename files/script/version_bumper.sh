@@ -3,7 +3,6 @@ set -e
 
 : ${CANDIDATE_PREFIX:='rc'}
 : ${TAG_PREFIX:=''}
-: ${BUMP_MODE? 'É necessário informar um tipo de bump: MAJOR, MINOR, PATCH ou CANDIDATE'}
 
 PATTERN="^${TAG_PREFIX}([0-9]{1,}\.[0-9]{1,}\.[0-9]{1,})\$"
 
