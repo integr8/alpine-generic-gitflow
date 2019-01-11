@@ -28,7 +28,6 @@ if [[ "${SUBCOMMAND}" == 'finish' ]]; then
 
 fi
 
-
 if [[ "${SUBCOMMAND}" == 'candidate' ]]; then
   release_candidate=$next_version
 

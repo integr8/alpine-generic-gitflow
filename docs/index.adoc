@@ -1,9 +1,14 @@
 = Gitflow Scanner
 Fábio Luciano <fabio@naoimporta.com>, Diego Aragão <aragao.diego@hotmail.com>
-:doctype: book
-:reproducible:
-:source-highlighter: rouge
-:listing-caption: Listing
+:toc2:
+:toclevels: 2
+:icons: font
+:iconfont-cdn: https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css
+:linkattrs:
+:sectanchors:
+:sectlink:
+:experimental:
+:source-language: asciidoc
 
 == Origem do código fonte
 
