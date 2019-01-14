@@ -8,7 +8,7 @@ export BINARY_PATH=$(dirname "$0")
 . $BINARY_PATH/source.sh
 . $BINARY_PATH/version_bumper.sh
 
-printf "\n\n" | git-flow init -f
+printf "\n\n" | git-flow init -f > /dev/null
 
 case $1 in
   feature)
