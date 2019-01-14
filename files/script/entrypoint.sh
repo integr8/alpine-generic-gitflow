@@ -5,6 +5,8 @@ PATH=$PATH:~/.local/bin
 export SOURCE_PATH='/opt/source'
 export BINARY_PATH=$(dirname "$0")
 
+. $BINARY_PATH/api.sh
+. $BINARY_PATH/utils.sh
 . $BINARY_PATH/source.sh
 . $BINARY_PATH/version_bumper.sh
 

@@ -12,5 +12,5 @@ if [[ "${SUBCOMMAND}" == 'finish' ]]; then
   git merge feature/$FEATURE
   git checkout `get_current_release_branch`
   git branch -D feature/$FEATURE
-  git push
+  git push origin --delete feature/$FEATURE
 fi
