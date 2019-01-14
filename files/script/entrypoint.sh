@@ -14,11 +14,11 @@ case $1 in
   feature)
     . $BINARY_PATH/wrapper/feature.sh
   ;;
-  bugfix) echo bugfix ;;
   release)
     . $BINARY_PATH/wrapper/release.sh
   ;;
   hotfix) echo hotfix ;;
+  bugfix) echo bugfix ;;
   support) echo support ;;
   *) echo 'sho me how it works' ;;
 esac
