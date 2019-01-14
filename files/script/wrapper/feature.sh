@@ -12,6 +12,4 @@ if [[ "${SUBCOMMAND}" == 'finish' ]]; then
   git merge feature/$FEATURE
   git checkout `get_current_release_branch`
   git push
-
-  git-flow feature finish $FEATURE
 fi
