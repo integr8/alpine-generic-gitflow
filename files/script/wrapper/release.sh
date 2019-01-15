@@ -38,16 +38,22 @@ fi
 
 if [[ "${SUBCOMMAND}" == 'candidate' ]]; then
   release_candidate=$next_version
+  latest_release_candidate=`get_latest_release_candidate_tag`
 
   git checkout -b release-candidate/$release_candidate
   . $BINARY_PATH/strategy.sh
 
   git add -A
-  git commit -m 'Updating POMs'
+  git commit -m 'Atualizando arquivo de versão do projeto para a versão '$next_version
 
   git tag $release_candidate
   git push origin $release_candidate
   
   git checkout `get_current_release_branch`
   git branch -D release-candidate/$release_candidate
+
+  if [[ ! -z "$GITLAB_TOKEN" ]]; then
+    release_note=$(get_release_message $latest_release_candidate)
+    create_release_note $release_candidate "$release_note"
+  fi
 fi
