@@ -4,7 +4,8 @@
 : ${FILE_NAME:="package.json"}
 
 change_version(){
-  echo $( echo $SOURCE_PATH/$FILE_NAME | jq ".version = \"$1\"") > $SOURCE_PATH/$FILE_NAME
+  cat $SOURCE_PATH/$FILE_NAME | jq -r ".version = \"$next_version\"" > $SOURCE_PATH/new_package.json
+  mv $SOURCE_PATH/new_package.json $SOURCE_PATH/$FILE_NAME
 }
 
 change_version $1
