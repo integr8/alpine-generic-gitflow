@@ -11,10 +11,12 @@ if [[ "${SUBCOMMAND}" == 'start' ]]; then
   git commit -m 'Atualizando arquivo de versão do projeto para a versão '$next_version
   
   git-flow release publish
+
 fi
 
 if [[ "${SUBCOMMAND}" == 'finish' ]]; then
-  RELEASE_NOTE_FILE_PATH=$(get_release_message `get_latest_tag`)
+  TAG_TOBE_CLOSE=`get_current_release_version`
+  LATEST_VERSION=`get_latest_tag`
 
   PATTERN_RELEASE_CANDIDATE="^(`get_current_release_version`-rc\.[0-9]{1,})\$"
   for tag in $(git tag); do
@@ -25,10 +27,13 @@ if [[ "${SUBCOMMAND}" == 'finish' ]]; then
   done
 
   export GIT_MERGE_AUTOEDIT=no
-  git-flow release finish -p -f $RELEASE_NOTE_FILE_PATH
+  git-flow release finish -p -m "Closing version"
   unset GIT_MERGE_AUTOEDIT
 
-  create_release_note $(get_latest_tag) $RELEASE_NOTE_FILE_PATH
+  if [[ ! -z "$GITLAB_TOKEN" ]]; then
+    release_note=$(get_release_message $LATEST_VERSION)
+    create_release_note "$TAG_TOBE_CLOSE" "$release_note"
+  fi
 fi
 
 if [[ "${SUBCOMMAND}" == 'candidate' ]]; then

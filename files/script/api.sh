@@ -1,15 +1,17 @@
 #!/bin/bash
  
 : ${GITLAB_TOKEN? 'É Necessário informar o token de acesso ao gitlab'}
+: ${GITLAB_URL? 'É Necessário informar o endereço da instância do GitLab'}
+
 
 recover_project_id() {
   remote=`git remote get-url --push origin`
   
   if [[ "$remote" =~ ([a-zA-Z0-9_-]+)\.git ]]; then
     project_name="${BASH_REMATCH[1]}"
-    x=`wget --quiet --header "PRIVATE-TOKEN: ${GITLAB_TOKEN}" "https://gitlab.com/api/v4/search?scope=projects&search=$project_name" -O-`
-    api_remote=`echo $x | jq -r '.[0].ssh_url_to_repo'`
-    project_id=`echo $x | jq -r '.[0].id'`
+    project_response=`wget --quiet --header "PRIVATE-TOKEN: ${GITLAB_TOKEN}" "https://gitlab.com/api/v4/search?scope=projects&search=$project_name" -O-`
+    api_remote=`echo $project_response | jq -r '.[0].ssh_url_to_repo'`
+    project_id=`echo $project_response | jq -r '.[0].id'`
     
     if [[ "$remote" ==  "$api_remote" ]]; then
       echo $project_id
@@ -17,10 +19,24 @@ recover_project_id() {
   fi
 }
 
-create_release_note() {
+create_release_note_json() {
   tag=$1
-  release_note=$(cat $2)
+  message=$(echo "$2")
+  json="{\"tag\":\"${tag}\", \"description\":\"${message}\"}"
+
+  echo "$json"
+}
+
+create_release_note() {
+  project_id=`recover_project_id`
+  message=$(create_release_note_json "$1" "$2")
+
+  curl -X POST -q -H "PRIVATE-TOKEN: ${GITLAB_TOKEN}" -H "Content-Type: application/json" -d "$message" "$GITLAB_URL"/api/v4/projects/$project_id/repository/tags/$1/release
+}
+
+protect_release_branch() {
   project_id=`recover_project_id`
 
-  wget -O- --verbose --header "PRIVATE-TOKEN: ${GITLAB_TOKEN}" --post-data "{\"tag\":\"$tag\", \"description\":\"$(echo -e "$release_note")\"}" --header=Content-Type:application/json https://gitlab.com/api/v4/projects/$project_id/repository/tags/$tag/release
+  curl -v -X PUT -H "PRIVATE-TOKEN: ${GITLAB_TOKEN}" "$GITLAB_URL"/api/v4/projects/$project_id/protected_branches?name=`get_current_release_branch`&push_access_level=30&merge_access_level=30&unprotect_access_level=40
+
 }
