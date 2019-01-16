@@ -50,11 +50,11 @@ increment_candidate() {
 
 increment_tag_version() {
   echo $( get_latest_tag | gawk -v mode="$BUMP_MODE" 'match($0, /([0-9]{1,})\.([0-9]{1,})\.([0-9]{1,})/, matches) {
-    if(mode == "major")
+    if(mode == "MAJOR")
       printf("%d.%d.%d", matches[1]+1, 0, 0)
-    else if(mode == "minor")
+    else if(mode == "MINOR")
       printf("%d.%d.%d",  matches[1], matches[2]+1, 0)
-    else if(mode == "patch")
+    else if(mode == "PATCH")
       printf("%d.%d.%d", matches[1], matches[2], matches[3]+1)
    }')
 }
