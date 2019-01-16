@@ -1,21 +1,21 @@
 #!/bin/bash
- 
+
 : ${GITLAB_TOKEN? 'É Necessário informar o token de acesso ao gitlab'}
 : ${GITLAB_URL? 'É Necessário informar o endereço da instância do GitLab'}
 
 
 recover_project_id() {
   remote=`git remote get-url --push origin`
-  
+
   if [[ "$remote" =~ ([a-zA-Z0-9_-]+)\.git ]]; then
     project_name="${BASH_REMATCH[1]}"
-    project_response=`wget --quiet --header "PRIVATE-TOKEN: ${GITLAB_TOKEN}" "https://gitlab.com/api/v4/search?scope=projects&search=$project_name" -O-`
+    project_response=`wget --quiet --header "PRIVATE-TOKEN: ${GITLAB_TOKEN}" "${GITLAB_URL}/api/v4/search?scope=projects&search=$project_name" -O-`
     api_remote=`echo $project_response | jq -r '.[0].ssh_url_to_repo'`
     project_id=`echo $project_response | jq -r '.[0].id'`
-    
+
     if [[ "$remote" ==  "$api_remote" ]]; then
       echo $project_id
-    fi 
+    fi
   fi
 }
 

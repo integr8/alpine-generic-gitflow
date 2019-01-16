@@ -20,7 +20,9 @@ case $1 in
     . $BINARY_PATH/wrapper/release.sh
   ;;
   hotfix) echo hotfix ;;
-  bugfix) echo bugfix ;;
+  bugfix)
+    . $BINARY_PATH/wrapper/bugfix.sh
+  ;;
   support) echo support ;;
   *) echo 'sho me how it works' ;;
 esac
