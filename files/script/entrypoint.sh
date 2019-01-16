@@ -19,7 +19,9 @@ case $1 in
   release)
     . $BINARY_PATH/wrapper/release.sh
   ;;
-  hotfix) echo hotfix ;;
+  hotfix)
+    . $BINARY_PATH/wrapper/hotfix.sh
+  ;;
   bugfix)
     . $BINARY_PATH/wrapper/bugfix.sh
   ;;
