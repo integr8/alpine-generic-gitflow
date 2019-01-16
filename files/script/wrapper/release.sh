@@ -37,6 +37,9 @@ if [[ "${SUBCOMMAND}" == 'finish' ]]; then
 fi
 
 if [[ "${SUBCOMMAND}" == 'candidate' ]]; then
+  BUMP_MODE='CANDIDADTE'
+  . $BINARY_PATH/version_bumper.sh
+  
   release_candidate=$next_version
   latest_release_candidate=`get_latest_release_candidate_tag`
 
