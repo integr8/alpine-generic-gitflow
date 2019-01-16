@@ -26,7 +26,7 @@ O clone do repositório, na imagem será feito em `/opt/source`
 |=======
 | Variável | Descrição | Valor Padrão
 | GIT_EMAIL | E-mail do usuário responsável pelo commit ( será o email do usuário configurado no gitconfig ) | N/A
-| GIT_URL | URL do repositório | https://github.com/integr8/liquibase-helper/
+| GIT_URL | URL do repositório | https://github.com/integr8/alpine-gitflow-helper/
 | GIT_USER | Usuário utilizado para autencicação no repositório | N/A
 | GIT_PASS | Senha utilização para autenticação no repositório | N/A
 |=======

@@ -5,12 +5,15 @@ PATH=$PATH:~/.local/bin
 export SOURCE_PATH='/opt/source'
 export BINARY_PATH=$(dirname "$0")
 
+cd /opt/source
+
 . $BINARY_PATH/api.sh
 . $BINARY_PATH/utils.sh
 . $BINARY_PATH/source.sh
 . $BINARY_PATH/version_bumper.sh
 
-printf "\n\n" | git-flow init -f > /dev/null
+git config gitflow.branch.develop development
+git-flow init -d
 
 case $1 in
   feature)

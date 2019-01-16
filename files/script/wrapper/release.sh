@@ -4,6 +4,7 @@ SUBCOMMAND=$2
 : ${BUMP_MODE? 'É necessário informar um tipo de bump: MAJOR, MINOR ou CANDIDATE'}
 
 if [[ "${SUBCOMMAND}" == 'start' ]]; then
+
   [[ $BUMP_MODE != "MINOR" ]] && [[ $BUMP_MODE != "MAJOR" ]] &&  echo 'MINOR ou MAJOR';
 
   git-flow release start $next_version
@@ -39,7 +40,7 @@ if [[ "${SUBCOMMAND}" == 'finish' ]]; then
 fi
 
 if [[ "${SUBCOMMAND}" == 'candidate' ]]; then
-  BUMP_MODE='CANDIDADTE'
+  BUMP_MODE='CANDIDATE'
   . $BINARY_PATH/version_bumper.sh
   
   release_candidate=$next_version

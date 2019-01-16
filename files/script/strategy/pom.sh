@@ -7,7 +7,7 @@
 change_version(){
   echo "POM_PATH:$PARENT_POM_PATH/$TO_BUMP_FILENAME"
   echo $(cat $PARENT_POM_PATH/$TO_BUMP_FILENAME) | xq  --xml-output -r '.project.version="'$next_version'"' > new_pom.xml
-  mv new_pom.xml $PARENT_POM_PATH/$TO_BUMP_FILENAME
+  mv -f new_pom.xml $PARENT_POM_PATH/$TO_BUMP_FILENAME
 
   check_for_submodules $PARENT_POM_PATH/$TO_BUMP_FILENAME
 }
@@ -24,7 +24,7 @@ modify_submodule(){
 
   echo "Modifying: $POM_PATH"
   cat $1 | xq --xml-output -r ".project.parent.version = \"$next_version\"" > new_pom.xml
-  mv new_pom.xml $(dirname $1)/pom.xml
+  mv -f new_pom.xml $(dirname $1)/pom.xml
 }
 
 change_version $1
