@@ -56,12 +56,13 @@ if [[ "${SUBCOMMAND}" == 'candidate' ]]; then
 
   git tag $release_candidate
   git push origin $release_candidate
-  
+
+  if [[ ! -z "$GITLAB_TOKEN" ]]; then
+    release_note=$(get_release_message `get_current_release_branch`)
+    create_release_note $release_candidate "$release_note"
+  fi
+
   git checkout `get_current_release_branch`
   git branch -D release-candidate/$release_candidate
 
-  if [[ ! -z "$GITLAB_TOKEN" ]]; then
-    release_note=$(get_release_message $latest_release_candidate)
-    create_release_note $release_candidate "$release_note"
-  fi
 fi

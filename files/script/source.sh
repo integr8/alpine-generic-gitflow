@@ -1,8 +1,6 @@
 #!/bin/bash
 set -e
 
-: ${SOURCE_METHOD? "Por favor, informe se será GIT ou VOLUME"}
-
 if [ "$SOURCE_METHOD" == 'GIT' ]; then
   : ${GIT_URL?   "Por favor, informe o endereço do repositório do git" }
 

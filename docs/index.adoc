@@ -36,3 +36,5 @@ O clone do repositório, na imagem será feito em `/opt/source`
 Caso os procedimentos serão executados em um código já clonado, a raiz do repositório deverá ser referenciado como um volume em `/opt/source`
 
 [caption="Exemplo: "]
+
+
