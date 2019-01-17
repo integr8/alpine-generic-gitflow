@@ -1,5 +1,4 @@
 #!/bin/bash
-set -e
 
 if [ "$SOURCE_METHOD" == 'GIT' ]; then
   : ${GIT_URL?   "Por favor, informe o endereço do repositório do git" }
@@ -8,7 +7,6 @@ if [ "$SOURCE_METHOD" == 'GIT' ]; then
 
   if [[ "$GIT_URL" =~ ^http ]]; then
     : ${GIT_USER?  "Por favor, informe o usuário do git" }
-    : ${GIT_EMAIL? "Por favor, informe o email do usuário git" }
     : ${GIT_PASS?  "Por favor, informe a senha do usuario do git" }
 
     git config --global credential.username ${GIT_USER}
@@ -21,6 +19,7 @@ if [ "$SOURCE_METHOD" == 'GIT' ]; then
 
   rm $SOURCE_PATH/* -rf
   git clone --progress --verbose ${GIT_URL} $SOURCE_PATH
+  git fetch --all
 
 elif [ "$SOURCE_METHOD" == 'VOLUME' ]; then
   if [ ! -d "$SOURCE_PATH" ]; then

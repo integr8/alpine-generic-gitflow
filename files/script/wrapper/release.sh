@@ -31,10 +31,12 @@ if [[ "${SUBCOMMAND}" == 'finish' ]]; then
     fi
   done
 
+  git checkout `get_current_release_branch`
+
   export GIT_MERGE_AUTOEDIT=no
   git-flow release finish -p -m "Closing version"
   unset GIT_MERGE_AUTOEDIT
-
+ 
   if [[ ! -z "$GITLAB_TOKEN" ]]; then
     release_note=$(get_release_message $LATEST_VERSION)
     create_release_note "$TAG_TOBE_CLOSE" "$release_note"

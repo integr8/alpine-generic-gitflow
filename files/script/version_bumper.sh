@@ -19,14 +19,13 @@ get_latest_tag() {
 }
 
 get_latest_release_candidate_tag() {
-  PATTERN="^${TAG_PREFIX}([0-9]{1,}\.[0-9]{1,}\.[0-9]{1,}\-${CANDIDATE_PREFIX}.[0-9]{1,})\$"
+  PATTERN="${TAG_PREFIX}([0-9]{1,}\.[0-9]{1,}\.[0-9]{1,}\-${CANDIDATE_PREFIX}.[0-9]{1,})\$"
   echo $(get_latest_tag)
 }
 
 get_current_release_version() {
-  RELEASE_PATTERN="^release/${TAG_PREFIX}([0-9]{1,}\.[0-9]{1,}\.[0-9]{1,})\$"
-
-  for BRANCH in `git branch --list|sed 's/\*//g'`; do
+  RELEASE_PATTERN="release/${TAG_PREFIX}([0-9]{1,}\.[0-9]{1,}\.[0-9]{1,})"
+  for BRANCH in `git --no-pager branch --list -a |sed 's/\*//g'`; do
     [[ "$BRANCH" =~ $RELEASE_PATTERN ]] && echo "${BASH_REMATCH[1]}"
   done
 }
@@ -36,7 +35,7 @@ get_current_release_branch() {
 }
 
 increment_candidate() {
-  current_release_version=$(git symbolic-ref HEAD  | sed -e 's/.*\///')
+  current_release_version=`get_current_release_version`
   last_release_candidate_tag=$(get_latest_release_candidate_tag)
 
   if [[ "$last_release_candidate_tag" != '0.0.0'  ]]; then

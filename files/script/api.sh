@@ -1,8 +1,5 @@
 #!/bin/bash
 
-: ${GITLAB_TOKEN? 'É Necessário informar o token de acesso ao gitlab'}
-: ${GITLAB_URL? 'É Necessário informar o endereço da instância do GitLab'}
-
 
 recover_project_id() {
   remote=`git remote get-url --push origin`
@@ -28,6 +25,9 @@ create_release_note_json() {
 }
 
 create_release_note() {
+  : ${GITLAB_TOKEN? 'É Necessário informar o token de acesso ao gitlab' }
+  : ${GITLAB_URL? 'É Necessário informar o endereço da instância do GitLab' }
+
   project_id=`recover_project_id`
   message=$(create_release_note_json "$1" "$2")
 
