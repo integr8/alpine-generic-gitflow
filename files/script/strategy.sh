@@ -11,3 +11,5 @@ elif [[ "$PROJECT_TYPE" == 'PHP' ]]; then
   FILE_NAME='composer.json'  
   . $BINARY_PATH/strategy/json.sh
 fi
+
+change_version

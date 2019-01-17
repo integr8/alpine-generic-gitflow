@@ -26,5 +26,3 @@ modify_submodule(){
   cat $1 | xq --xml-output -r ".project.parent.version = \"$next_version\"" > new_pom.xml
   mv -f new_pom.xml $(dirname $1)/pom.xml
 }
-
-change_version $1

@@ -1,11 +1,13 @@
 #!/bin/bash
 SUBCOMMAND=$2
 
-: ${BUMP_MODE? 'É necessário informar um tipo de bump: MAJOR, MINOR ou CANDIDATE'}
-
 if [[ "${SUBCOMMAND}" == 'start' ]]; then
+  : ${BUMP_MODE? 'É necessário informar um tipo de bump: MAJOR, MINOR'}
 
-  [[ $BUMP_MODE != "MINOR" ]] && [[ $BUMP_MODE != "MAJOR" ]] &&  echo 'MINOR ou MAJOR';
+  if [[ $BUMP_MODE != "MINOR" ]] && [[ $BUMP_MODE != "MAJOR" ]]; then
+    echo 'MINOR ou MAJOR';
+    exit 0;
+  fi
 
   git-flow release start $next_version
   . $BINARY_PATH/strategy.sh
