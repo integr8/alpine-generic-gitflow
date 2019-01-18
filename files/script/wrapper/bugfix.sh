@@ -13,4 +13,6 @@ if [[ "${SUBCOMMAND}" == 'finish' ]]; then
 
   export GIT_MERGE_AUTOEDIT=no
   git-flow bugfix finish -p $BUGFIX
+  
+  git checkout `get_current_release_branch`
 fi

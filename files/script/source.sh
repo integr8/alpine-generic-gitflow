@@ -11,7 +11,6 @@ if [ "$SOURCE_METHOD" == 'GIT' ]; then
 
     git config --global credential.username ${GIT_USER}
     git config --global credential.helper '!f() { echo "password='${GIT_PASS}'"; }; f'
-    git config --global user.email ${GIT_EMAIL}
 
   elif [[ "${GIT_URL}" =~ ^git@ ]]; then 
     [[ -f /home/gitflow/.ssh/id_rsa ]] && echo 'Para usar esse tipo de url, crie um volume com a chave!'
@@ -19,7 +18,13 @@ if [ "$SOURCE_METHOD" == 'GIT' ]; then
 
   rm $SOURCE_PATH/* -rf
   git clone --progress --verbose ${GIT_URL} $SOURCE_PATH
+
+  for branch in `git branch -a | grep remotes | grep -v HEAD | grep -v master`; do
+    git branch --track ${branch#remotes/origin/} $branch &> /dev/null
+  done
+
   git fetch --all
+  git branch master > /dev/null
 
 elif [ "$SOURCE_METHOD" == 'VOLUME' ]; then
   if [ ! -d "$SOURCE_PATH" ]; then

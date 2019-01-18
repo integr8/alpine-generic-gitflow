@@ -25,7 +25,7 @@ get_latest_release_candidate_tag() {
 
 get_current_release_version() {
   RELEASE_PATTERN="release/${TAG_PREFIX}([0-9]{1,}\.[0-9]{1,}\.[0-9]{1,})"
-  for BRANCH in `git --no-pager branch --list -a |sed 's/\*//g'`; do
+  for BRANCH in `git --no-pager branch --list |sed 's/\*//g'`; do
     [[ "$BRANCH" =~ $RELEASE_PATTERN ]] && echo "${BASH_REMATCH[1]}"
   done
 }

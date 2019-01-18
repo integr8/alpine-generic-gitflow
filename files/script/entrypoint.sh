@@ -14,7 +14,7 @@ cd /opt/source
 . $BINARY_PATH/version_bumper.sh
 
 git config gitflow.branch.develop development
-git-flow init -d > /dev/null
+git-flow init -d &> /dev/null
 
 case $1 in
   feature)
