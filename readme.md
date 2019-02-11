@@ -1,4 +1,4 @@
-# Gitflow Scanner
+# Gitflow Helper
 
 [![Build Status](https://travis-ci.org/integr8/alpine-gitflow-helper.svg?branch=development)](https://travis-ci.org/integr8/alpine-gitflow-helper)
 
