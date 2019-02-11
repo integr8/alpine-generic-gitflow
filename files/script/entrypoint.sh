@@ -5,7 +5,8 @@ PATH=$PATH:~/.local/bin
 export SOURCE_PATH='/opt/source'
 export BINARY_PATH=$(dirname "$0")
 
-cd /opt/source
+cd $SOURCE_PATH
+ls -lah
 
 . $BINARY_PATH/check.sh
 . $BINARY_PATH/api.sh
