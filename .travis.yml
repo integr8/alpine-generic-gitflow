@@ -7,7 +7,7 @@ jobs:
   include:
     - stage: "Publish docs"
       script:
-        - docker run --rm -v $TRAVIS_BUILD_DIR:/documents/ -e 'ASCIIDOCTOR_THEME=riak' integr8/alpine-asciidoctor-helper html docs/index.adoc
+        - docker run --rm -v $TRAVIS_BUILD_DIR:/documents/ -e 'ASCIIDOCTOR_THEME=riak' integr8/alpine-asciidoctor-helper html docs/index-ptbr.adoc
       deploy:
         provider: pages
         target-branch: gh-pages
