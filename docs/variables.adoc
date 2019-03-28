@@ -1,0 +1,18 @@
+:toc2:
+:toclevels: 2
+:icons: font
+:iconfont-cdn: https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css
+:linkattrs:
+:sectanchors:
+:nofooter:
+:sectlink:
+:experimental:
+:source-language: asciidoc
+:includedir: sections
+:doc-version: 1.0
+:author: Integr8
+:full-name: Integr8
+:source-highlighter: rouge
+:google-analytics-account: UA-137210080-1
+:toc-title: Índice
+:doctitle: Gerenciamento de branches com o Gitflow - {author}

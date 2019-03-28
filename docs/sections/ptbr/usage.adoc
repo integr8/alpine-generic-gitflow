@@ -1,16 +1,6 @@
-= Gitflow Scanner
-Fábio Luciano <fabio@naoimporta.com>, Diego Aragão <aragao.diego@hotmail.com>
-:toc2:
-:toclevels: 2
-:icons: font
-:iconfont-cdn: https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css
-:linkattrs:
-:sectanchors:
-:sectlink:
-:experimental:
-:source-language: asciidoc
+== Utilização
 
-== Origem do código fonte
+=== Origem do código fonte
 
 [width="100%", options="header",frame="topbot"] 
 |=======
@@ -18,7 +8,7 @@ Fábio Luciano <fabio@naoimporta.com>, Diego Aragão <aragao.diego@hotmail.com>
 | SOURCE_METHOD | Origem do código fonte | *GIT* ou *VOLUME*
 |=======
 
-=== Git
+==== Git
 
 O clone do repositório, na imagem será feito em `/opt/source`
 
@@ -31,10 +21,8 @@ O clone do repositório, na imagem será feito em `/opt/source`
 | GIT_PASS | Senha utilização para autenticação no repositório | N/A
 |=======
 
-=== Volume
+==== Volume
 
 Caso os procedimentos serão executados em um código já clonado, a raiz do repositório deverá ser referenciado como um volume em `/opt/source`
 
 [caption="Exemplo: "]
-
-

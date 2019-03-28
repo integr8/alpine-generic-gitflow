@@ -1,0 +1,13 @@
+include::variables.adoc[]
+
+ifdef::backend-pdf[:notitle:]
+ifdef::backend-pdf[:!toc2:]
+ifdef::backend-pdf[]
+= {doctitle}
+endif::[]
+
+include::{includedir}/ptbr/heading.adoc[]
+
+include::{includedir}/ptbr/gitflow.adoc[]
+
+include::{includedir}/ptbr/usage.adoc[]

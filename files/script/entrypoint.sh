@@ -6,7 +6,6 @@ export SOURCE_PATH='/opt/source'
 export BINARY_PATH=$(dirname "$0")
 
 cd $SOURCE_PATH
-ls -lah
 
 . $BINARY_PATH/check.sh
 . $BINARY_PATH/api.sh
@@ -31,5 +30,5 @@ case $1 in
     . $BINARY_PATH/wrapper/bugfix.sh
   ;;
   support) echo support ;;
-  *) echo 'sho me how it works' ;;
+  *) echo 'Show me how it works' ;;
 esac

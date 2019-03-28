@@ -1,0 +1,4 @@
+== Gitflow
+
+[.text-center]
+plantuml::resources/plantuml/gitflow.plantuml[config=resources/config/plantuml.cfg, format="svg"]
