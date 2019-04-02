@@ -7,7 +7,11 @@ jobs:
   include:
     - stage: "Publish docs"
       script:
-        - docker run --rm -v $TRAVIS_BUILD_DIR:/documents/ -e 'ASCIIDOCTOR_THEME=riak' integr8/alpine-asciidoctor-helper html docs/index-ptbr.adoc
+        - mkdir -p output/{ptbr,en}
+        - docker run --rm -v  $TRAVIS_BUILD_DIR:/documents/ -e 'ASCIIDOCTOR_PLUGIN=asciidoctor-diagram,chart-block-macro' -e 'ASCIIDOCTOR_PDF_THEMES_DIR=docs/resources/themes' -e 'ASCIIDOCTOR_PDF_THEME=default' -e 'ASCIIDOCTOR_PDF_FONTS_DIR=docs/resources/fonts' integr8/alpine-asciidoctor-helper pdf docs/index-ptbr.adoc
+        - docker run --rm -v  $TRAVIS_BUILD_DIR:/documents/ -e 'ASCIIDOCTOR_PLUGIN=asciidoctor-diagram,chart-block-macro' integr8/alpine-asciidoctor-helper html docs/index-ptbr.adoc
+        - mv output/index-ptbr.html output/index.html
+        - mv output/index-ptbr.pdf output/ptbr/doc.pdf
       deploy:
         provider: pages
         target-branch: gh-pages
