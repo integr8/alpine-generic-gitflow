@@ -1,6 +1,6 @@
 ifdef::backend-html5[]
 [TIP]
 ====
-Você pode fazer o download da versão em link:/ptbr/docs.pdf[ icon:file-pdf-o[] PDF, role="external", window="_blank"] também. +
+Você pode fazer o download da versão em link:/ptbr/doc.pdf[ icon:file-pdf-o[] PDF, role="external", window="_blank"] também. +
 ====
 endif::[]
