@@ -12,7 +12,6 @@
 :doc-version: 1.0
 :author: Integr8
 :full-name: Integr8
-:source-highlighter: rouge
 :google-analytics-account: UA-137210080-1
 :toc-title: Índice
 :doctitle: Gerenciamento de branches com o Gitflow - {author}

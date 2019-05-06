@@ -1,0 +1,6 @@
+@startuml
+|master|
+start
+|development|
+stop
+@enduml

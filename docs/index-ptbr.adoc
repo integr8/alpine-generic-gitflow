@@ -10,4 +10,4 @@ include::{includedir}/ptbr/heading.adoc[]
 
 include::{includedir}/ptbr/gitflow.adoc[]
 
-include::{includedir}/ptbr/usage.adoc[]
+include::{includedir}/ptbr/reference.adoc[]

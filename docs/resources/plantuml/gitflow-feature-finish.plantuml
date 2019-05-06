@@ -1,0 +1,13 @@
+@startuml
+|master|
+|development|
+|release/1.0.0|
+|feature/caso-de-uso-01|
+start
+  :[63ae94da] Adiciona cabeçalho a documenta ...;
+  :[b388c0e8] Atualiza o contrato REST para  ...;
+  :[e38fc2d8] Adiciona controlador e rota do ...;
+  :[d34f1298] Adiciona controlador e rota do ...;
+|release/1.0.0|
+stop
+@enduml

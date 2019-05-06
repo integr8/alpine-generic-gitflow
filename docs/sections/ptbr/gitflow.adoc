@@ -1,4 +1,30 @@
 == Gitflow
 
-[.text-center]
-plantuml::resources/plantuml/gitflow.plantuml[config=resources/config/plantuml.cfg, format="svg"]
+=== Introdução
+O *Git Flow* é uma modelo para gerenciamento de releases, que em seus benefícios estão a colaboração e o desenvolvimento paralelo, com a separação dos trabalhos em desenvolvimento e finalizados, utilizando branches. No modelo, são definidas duas branches principais: *master* e *development*, e três de apoio: __Release__, __Feature__ e __Hotfix__.
+
+== Referência
+
+=== Init
+plantuml::resources/plantuml/gitflow-init.plantuml[config=resources/config/plantuml.cfg, format="svg"]
+
+=== Releases
+
+==== Release Start
+plantuml::resources/plantuml/gitflow-release-start.plantuml[config=resources/config/plantuml.cfg, format="svg"]
+
+==== Release Finish
+plantuml::resources/plantuml/gitflow-release-finish.plantuml[config=resources/config/plantuml.cfg, format="svg"]
+
+==== Release Candidate
+plantuml::resources/plantuml/gitflow-release-finish.plantuml[config=resources/config/plantuml.cfg, format="svg"]
+
+=== Features
+
+plantuml::resources/plantuml/gitflow-two-features.plantuml[config=resources/config/plantuml.cfg, format="svg"]
+
+==== Feature Start
+plantuml::resources/plantuml/gitflow-feature-start.plantuml[config=resources/config/plantuml.cfg, format="svg"]
+
+==== Feature Finish
+plantuml::resources/plantuml/gitflow-feature-finish.plantuml[config=resources/config/plantuml.cfg, format="svg"]
