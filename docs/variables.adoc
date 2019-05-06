@@ -1,5 +1,5 @@
 :toc2:
-:toclevels: 2
+:toclevels: 3
 :icons: font
 :iconfont-cdn: https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css
 :linkattrs:
@@ -13,5 +13,10 @@
 :author: Integr8
 :full-name: Integr8
 :google-analytics-account: UA-137210080-1
+:source-highlighter: pygments
+:pygments-style: igor
 :toc-title: Índice
+:figure-caption: Figura
+:table-caption: Tabela
 :doctitle: Gerenciamento de branches com o Gitflow - {author}
+:repository: integr8/alpine-gitflow-helper
