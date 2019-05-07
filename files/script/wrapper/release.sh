@@ -20,10 +20,10 @@ if [[ "${SUBCOMMAND}" == 'start' ]]; then
 fi
 
 if [[ "${SUBCOMMAND}" == 'finish' ]]; then
-  TAG_TOBE_CLOSE=`get_current_release_version`
+  TAG_TOBE_CLOSE=$(echo `get_current_release_version`)
   LATEST_VERSION=`get_latest_tag`
+  PATTERN_RELEASE_CANDIDATE="^($TAG_TOBE_CLOSE-rc\.[0-9]{1,})\$"
 
-  PATTERN_RELEASE_CANDIDATE="^(`get_current_release_version`-rc\.[0-9]{1,})\$"
   for tag in $(git tag); do
     if [[ "$tag" =~ $PATTERN_RELEASE_CANDIDATE ]]; then
       git tag -d "${BASH_REMATCH[1]}"
@@ -37,10 +37,10 @@ if [[ "${SUBCOMMAND}" == 'finish' ]]; then
   git-flow release finish -p -m "Closing version"
   unset GIT_MERGE_AUTOEDIT
  
-  if [[ ! -z "$GITLAB_TOKEN" ]]; then
-    release_note=$(get_release_message $LATEST_VERSION)
-    create_release_note "$TAG_TOBE_CLOSE" "$release_note"
-  fi
+  # if [[ ! -z "$GITLAB_TOKEN" ]]; then
+  #   release_note=$(get_release_message $LATEST_VERSION)
+  #   create_release_note "$TAG_TOBE_CLOSE" "$release_note"
+  # fi
 fi
 
 if [[ "${SUBCOMMAND}" == 'candidate' ]]; then
@@ -59,10 +59,10 @@ if [[ "${SUBCOMMAND}" == 'candidate' ]]; then
   git tag $release_candidate
   git push origin $release_candidate
 
-  if [[ ! -z "$GITLAB_TOKEN" ]]; then
-    release_note=$(get_release_message `get_current_release_branch`)
-    create_release_note $release_candidate "$release_note"
-  fi
+  # if [[ ! -z "$GITLAB_TOKEN" ]]; then
+  #   release_note=$(get_release_message `get_current_release_branch`)
+  #   create_release_note $release_candidate "$release_note"
+  # fi
 
   git checkout `get_current_release_branch`
   git branch -D release-candidate/$release_candidate

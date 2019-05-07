@@ -21,5 +21,4 @@ RUN chmod +x /usr/local/bin/ctn/entrypoint.sh
 
 USER 1000
 
-
 ENTRYPOINT [ "/usr/local/bin/ctn/entrypoint.sh" ]
