@@ -30,6 +30,13 @@ get_current_release_version() {
   done
 }
 
+get_current_patch_version() {
+  BUGFIX_PATTERN="hotfix/${TAG_PREFIX}([0-9]{1,}\.[0-9]{1,}\.[0-9]{1,})"
+  for BRANCH in `git --no-pager branch --list |sed 's/\*//g'`; do
+    [[ "$BRANCH" =~ $BUGFIX_PATTERN ]] && echo "${BASH_REMATCH[1]}"
+  done
+}
+
 get_current_release_branch() {
   echo "release/`get_current_release_version`"
 }
