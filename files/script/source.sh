@@ -17,7 +17,7 @@ if [ "$SOURCE_METHOD" == 'GIT' ]; then
   fi
 
   rm $SOURCE_PATH/* -rf
-  git clone --progress --verbose ${GIT_URL} $SOURCE_PATH
+  GIT_SSH_COMMAND="ssh -vvv" git clone --progress --verbose ${GIT_URL} $SOURCE_PATH
 
   for branch in `git branch -a | grep remotes | grep -v HEAD | grep -v master`; do
     git branch --track ${branch#remotes/origin/} $branch &> /dev/null
