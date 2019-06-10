@@ -10,7 +10,7 @@ RUN printf "password\npassword" | adduser gitflow \
   && sed -i 's/readlink \-e/ readlink -f/' /usr/local/bin/git-flow \
   && mkdir -p /home/gitflow/.ssh/ && chown gitflow:gitflow /home/gitflow/.ssh/ \
   && printf "Host *\n\tStrictHostKeyChecking no" > /home/gitflow/.ssh/config && mkdir -p /opt/source -m 0777 \
-  && apk del .buildeps && rm /home/gitflow/.ssh/id_rsa*
+  && apk del .buildeps && ls -l /home/gitflow/.ssh/
 
 COPY files/script/*.sh /usr/local/bin/ctn/
 COPY files/script/wrapper/ /usr/local/bin/ctn/wrapper
