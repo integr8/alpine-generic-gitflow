@@ -14,6 +14,7 @@ if [[ "${SUBCOMMAND}" == 'start' ]]; then
 fi
 
 if [[ "${SUBCOMMAND}" == 'finish' ]]; then
+  git checkout hotfix/`get_current_patch_version`
   export GIT_MERGE_AUTOEDIT=no
   git-flow hotfix finish -p -m "Closing version"
   unset GIT_MERGE_AUTOEDIT
