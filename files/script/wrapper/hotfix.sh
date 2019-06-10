@@ -10,7 +10,7 @@ if [[ "${SUBCOMMAND}" == 'start' ]]; then
   . $BINARY_PATH/strategy.sh
   git add -A
   git commit -m 'Atualizando arquivo de versão do projeto para a versão '$next_version
-  git-flow bugfix publish $next_version
+  git-flow hotfix publish $next_version
 fi
 
 if [[ "${SUBCOMMAND}" == 'finish' ]]; then
