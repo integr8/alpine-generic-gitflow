@@ -15,8 +15,6 @@ if [ "$SOURCE_METHOD" == 'GIT' ]; then
   elif [[ "${GIT_URL}" =~ ^git@ ]]; then 
     [[ -f /home/gitflow/.ssh/id_rsa ]] && echo 'Para usar esse tipo de url, crie um volume com a chave!'
   fi
-  
-  ls -l /home/gitflow/.ssh/
 
   rm $SOURCE_PATH/* -rf
   git clone --progress --verbose ${GIT_URL} $SOURCE_PATH
