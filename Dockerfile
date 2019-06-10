@@ -6,9 +6,8 @@ RUN printf "password\npassword" | adduser gitflow \
   && apk --no-cache add git bash jq py2-pip libxml2 util-linux openssh-client gawk curl \
   && pip install --upgrade pip && pip install --no-cache-dir --upgrade yq \
   && wget --no-check-certificate -q  https://raw.githubusercontent.com/petervanderdoes/gitflow-avh/develop/contrib/gitflow-installer.sh -O- | bash -s -- install stable \
-  && mkdir -p ~/.ssh && printf "Host *\n  StrictHostKeyChecking no" >> ~/.ssh/config \ 
-  && sed -i 's/readlink \-e/ readlink -f/' /usr/local/bin/git-flow \
-  && mkdir -p /home/gitflow/.ssh/ && chown gitflow:gitflow /home/gitflow/.ssh/ \
+  && mkdir -p /home/gitflow/.ssh/ && printf "Host *\n  StrictHostKeyChecking no" >> /home/gitflow/.ssh/ \ 
+  && sed -i 's/readlink \-e/ readlink -f/' /usr/local/bin/git-flow && chown gitflow:gitflow /home/gitflow/.ssh/ \
   && printf "Host *\n\tStrictHostKeyChecking no" > /home/gitflow/.ssh/config && mkdir -p /opt/source -m 0777 \
   && apk del .buildeps && ls -l /home/gitflow/.ssh/
 
