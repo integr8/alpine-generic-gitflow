@@ -13,10 +13,13 @@ if [ "$SOURCE_METHOD" == 'GIT' ]; then
     git config --global credential.helper '!f() { echo "password='${GIT_PASS}'"; }; f'
 
   elif [[ "${GIT_URL}" =~ ^git@ ]]; then 
-    [[ -f /home/gitflow/.ssh/id_rsa ]] && echo 'Para usar esse tipo de url, crie um volume com a chave!'
+    [[ -f /home/${CONTAINER_USERNAME}/.ssh/id_rsa ]] && echo 'Para usar esse tipo de url, crie um volume com a chave!'
+
+    chmod 400 /home/${CONTAINER_USERNAME}/.ssh/id_rsa
   fi
 
   rm $SOURCE_PATH/* -rf
+  ssh-keyscan -H `get_uri_info $GIT_URL host` >> /home/${CONTAINER_USERNAME}/.ssh/known_hosts
   GIT_SSH_COMMAND="ssh -vvv" git clone --progress --verbose ${GIT_URL} $SOURCE_PATH
 
   for branch in `git branch -a | grep remotes | grep -v HEAD | grep -v master`; do
@@ -30,4 +33,8 @@ elif [ "$SOURCE_METHOD" == 'VOLUME' ]; then
   if [ ! -d "$SOURCE_PATH" ]; then
       echo 'Foi informado que o código fonte seria provido por um volume, mas o diretório não existe'
   fi
+  
+  chmod 400 /home/${CONTAINER_USERNAME}/.ssh/id_rsa
+  git remote get-url origin
+  ssh-keyscan -H `get_uri_info $GIT_URL host` >> /home/${CONTAINER_USERNAME}/.ssh/known_hosts
 fi

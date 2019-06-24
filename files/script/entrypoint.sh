@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -x
+
 PATH=$PATH:~/.local/bin
 
 export SOURCE_PATH='/opt/source'
@@ -15,6 +17,10 @@ cd $SOURCE_PATH
 
 git config gitflow.branch.develop development
 git-flow init -d &> /dev/null
+
+
+# exit
+  
 
 case $1 in
   feature)

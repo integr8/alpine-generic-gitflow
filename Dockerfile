@@ -1,15 +1,17 @@
 FROM alpine:3.8
 LABEL maintainer="Fábio Luciano"
 
-RUN printf "password\npassword" | adduser gitflow \
+ARG CONTAINER_USERNAME=integr8
+ENV CONTAINER_USERNAME=${CONTAINER_USERNAME}
+
+RUN printf "password\npassword" | adduser ${CONTAINER_USERNAME} \
   && apk add --no-cache --virtual .buildeps gcc libxml2-dev libxslt-dev libc-dev python-dev \
   && apk --no-cache add git bash jq py2-pip libxml2 util-linux openssh-client gawk curl \
   && pip install --upgrade pip && pip install --no-cache-dir --upgrade yq \
   && wget --no-check-certificate -q  https://raw.githubusercontent.com/petervanderdoes/gitflow-avh/develop/contrib/gitflow-installer.sh -O- | bash -s -- install stable \
-  && mkdir -p /home/gitflow/.ssh/ && printf "Host *\n  StrictHostKeyChecking no" >> /home/gitflow/.ssh/config \ 
-  && sed -i 's/readlink \-e/ readlink -f/' /usr/local/bin/git-flow && chown gitflow:gitflow /home/gitflow/.ssh/ \
-  && printf "Host *\n\tStrictHostKeyChecking no" > /home/gitflow/.ssh/config && mkdir -p /opt/source -m 0777 \
-  && apk del .buildeps && ls -l /home/gitflow/.ssh/
+  && mkdir -p /home/${CONTAINER_USERNAME}/.ssh/ && printf "Host *\n  StrictHostKeyChecking no" >> /home/${CONTAINER_USERNAME}/.ssh/config \ 
+  && sed -i 's/readlink \-e/ readlink -f/' /usr/local/bin/git-flow && chown ${CONTAINER_USERNAME}:${CONTAINER_USERNAME} /home/${CONTAINER_USERNAME}/.ssh/ \
+  && mkdir -p /opt/source -m 0777 && apk del .buildeps
 
 COPY files/script/*.sh /usr/local/bin/ctn/
 COPY files/script/wrapper/ /usr/local/bin/ctn/wrapper
