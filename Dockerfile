@@ -10,7 +10,7 @@ RUN printf "password\npassword" | adduser ${CONTAINER_USERNAME} \
   && pip install --upgrade pip && pip install --no-cache-dir --upgrade yq \
   && wget --no-check-certificate -q  https://raw.githubusercontent.com/petervanderdoes/gitflow-avh/develop/contrib/gitflow-installer.sh -O- | bash -s -- install stable \
   && mkdir -p /home/${CONTAINER_USERNAME}/.ssh/ && printf "Host *\n  StrictHostKeyChecking no" >> /home/${CONTAINER_USERNAME}/.ssh/config \ 
-  && sed -i 's/readlink \-e/ readlink -f/' /usr/local/bin/git-flow && chown ${CONTAINER_USERNAME}:${CONTAINER_USERNAME} /home/${CONTAINER_USERNAME}/.ssh/ \
+  && sed -i 's/readlink \-e/ readlink -f/' /usr/local/bin/git-flow && chown ${CONTAINER_USERNAME}:${CONTAINER_USERNAME} /home/${CONTAINER_USERNAME}/.ssh/ -R \
   && mkdir -p /opt/source -m 0777 && apk del .buildeps
 
 COPY files/script/*.sh /usr/local/bin/ctn/
