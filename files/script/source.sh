@@ -19,7 +19,9 @@ if [ "$SOURCE_METHOD" == 'GIT' ]; then
   fi
 
   rm $SOURCE_PATH/* -rf
-  ssh-keyscan -H `get_uri_info $GIT_URL host` >> /home/${CONTAINER_USERNAME}/.ssh/known_hosts
+  ssh-keyscan -H `get_uri_info $GIT_URL host` > /home/${CONTAINER_USERNAME}/.ssh/known_hosts
+  ls -lah /home/${CONTAINER_USERNAME}/
+  ls -lah /home/${CONTAINER_USERNAME}/.ssh/
   GIT_SSH_COMMAND="ssh -vvv" git clone --progress --verbose ${GIT_URL} $SOURCE_PATH
 
   for branch in `git branch -a | grep remotes | grep -v HEAD | grep -v master`; do

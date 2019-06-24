@@ -18,10 +18,6 @@ cd $SOURCE_PATH
 git config gitflow.branch.develop development
 git-flow init -d &> /dev/null
 
-
-# exit
-  
-
 case $1 in
   feature)
     . $BINARY_PATH/wrapper/feature.sh
