@@ -14,6 +14,7 @@ if [ "$SOURCE_METHOD" == 'GIT' ]; then
 
   elif [[ "${GIT_URL}" =~ ^git@ ]]; then 
     [[ -f /home/${CONTAINER_USERNAME}/.ssh/id_rsa ]] && echo 'Para usar esse tipo de url, crie um volume com a chave!'
+    chmod 400 /home/${CONTAINER_USERNAME}/.ssh/id_rsa
   fi
 
   rm $SOURCE_PATH/* -rf
