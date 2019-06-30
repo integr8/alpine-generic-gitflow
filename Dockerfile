@@ -18,8 +18,8 @@ RUN printf "password\npassword" | adduser ${CONTAINER_USERNAME} \
   && mkdir -p /opt/source -m 0777 && apk del .buildeps \
   && chmod +x /usr/local/bin/ctn/entrypoint.sh
 
-RUN mkdir -p /home/${CONTAINER_USERNAME}/.ssh/ && printf "Host *\n  StrictHostKeyChecking no" >> /home/${CONTAINER_USERNAME}/.ssh/config
+USER ${CONTAINER_USERNAME}
 
-USER root
+RUN mkdir -p /home/${CONTAINER_USERNAME}/.ssh/ && printf "Host *\n  StrictHostKeyChecking no" >> /home/${CONTAINER_USERNAME}/.ssh/config
 
 ENTRYPOINT [ "/usr/local/bin/ctn/entrypoint.sh" ]
