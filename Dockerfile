@@ -20,4 +20,6 @@ RUN printf "password\npassword" | adduser ${CONTAINER_USERNAME} \
 
 RUN mkdir -p /home/${CONTAINER_USERNAME}/.ssh/ && printf "Host *\n  StrictHostKeyChecking no" >> /home/${CONTAINER_USERNAME}/.ssh/config
 
+USER root
+
 ENTRYPOINT [ "/usr/local/bin/ctn/entrypoint.sh" ]
