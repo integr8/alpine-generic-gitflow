@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -x
+set -Eeuo pipefail
 
 PATH=$PATH:~/.local/bin
 
@@ -31,6 +31,6 @@ case $1 in
   bugfix)
     . $BINARY_PATH/wrapper/bugfix.sh
   ;;
-  support) echo support ;;
+  help) echo support ;;
   *) echo 'Show me how it works' ;;
 esac
