@@ -1,7 +1,5 @@
 #!/bin/bash
 
-set -Eeuo pipefail
-
 PATH=$PATH:~/.local/bin
 
 export SOURCE_PATH='/opt/source'
