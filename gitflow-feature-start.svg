@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="342px" preserveAspectRatio="none" style="width:736px;height:342px;" version="1.1" viewBox="0 0 736 342" width="736px" zoomAndPan="magnify"><defs><filter height="300%" id="f5m4unzxlzhgq" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><ellipse cx="256" cy="42.5839" fill="#000000" filter="url(#f5m4unzxlzhgq)" rx="10" ry="10" style="stroke: none; stroke-width: 1.0;"/><rect fill="#527BC6" filter="url(#f5m4unzxlzhgq)" height="39.533" rx="12.5" ry="12.5" style="stroke: #000000; stroke-width: 1.5;" width="398" x="317" y="72.5839"/><text fill="#FFFFFF" font-family="Ubuntu" font-size="17" lengthAdjust="spacingAndGlyphs" textLength="378" x="327" y="98.9038">[63ae94da] Adiciona cabeçalho a documentação</text><rect fill="#527BC6" filter="url(#f5m4unzxlzhgq)" height="39.533" rx="12.5" ry="12.5" style="stroke: #000000; stroke-width: 1.5;" width="361" x="335.5" y="132.1168"/><text fill="#FFFFFF" font-family="Ubuntu" font-size="17" lengthAdjust="spacingAndGlyphs" textLength="341" x="345.5" y="158.4368">[b388c0e8] Atualiza o contrato REST para ...</text><rect fill="#527BC6" filter="url(#f5m4unzxlzhgq)" height="39.533" rx="12.5" ry="12.5" style="stroke: #000000; stroke-width: 1.5;" width="365" x="333.5" y="191.6498"/><text fill="#FFFFFF" font-family="Ubuntu" font-size="17" lengthAdjust="spacingAndGlyphs" textLength="345" x="343.5" y="217.9697">[e38fc2d8] Adiciona controlador e rota do ...</text><rect fill="#527BC6" filter="url(#f5m4unzxlzhgq)" height="39.533" rx="12.5" ry="12.5" style="stroke: #000000; stroke-width: 1.5;" width="365" x="333.5" y="251.1827"/><text fill="#FFFFFF" font-family="Ubuntu" font-size="17" lengthAdjust="spacingAndGlyphs" textLength="345" x="343.5" y="277.5027">[e38fc2d8] Adiciona controlador e rota do ...</text><ellipse cx="516" cy="320.7157" fill="none" filter="url(#f5m4unzxlzhgq)" rx="10" ry="10" style="stroke: #000000; stroke-width: 1.0;"/><ellipse cx="516.5" cy="321.2157" fill="#000000" filter="url(#f5m4unzxlzhgq)" rx="6" ry="6" style="stroke: none; stroke-width: 1.0;"/><line style="stroke: #222266; stroke-width: 1.5;" x1="516" x2="516" y1="112.1168" y2="132.1168"/><polygon fill="#222266" points="512,122.1168,516,132.1168,520,122.1168,516,126.1168" style="stroke: #222266; stroke-width: 1.0;"/><line style="stroke: #222266; stroke-width: 1.5;" x1="516" x2="516" y1="171.6498" y2="191.6498"/><polygon fill="#222266" points="512,181.6498,516,191.6498,520,181.6498,516,185.6498" style="stroke: #222266; stroke-width: 1.0;"/><line style="stroke: #222266; stroke-width: 1.5;" x1="516" x2="516" y1="231.1827" y2="251.1827"/><polygon fill="#222266" points="512,241.1827,516,251.1827,520,241.1827,516,245.1827" style="stroke: #222266; stroke-width: 1.0;"/><line style="stroke: #222266; stroke-width: 1.5;" x1="516" x2="516" y1="290.7157" y2="310.7157"/><polygon fill="#222266" points="512,300.7157,516,310.7157,520,300.7157,516,304.7157" style="stroke: #222266; stroke-width: 1.0;"/><line style="stroke: #222266; stroke-width: 1.5;" x1="256" x2="256" y1="52.5839" y2="57.5839"/><line style="stroke: #222266; stroke-width: 1.5;" x1="256" x2="516" y1="57.5839" y2="57.5839"/><line style="stroke: #222266; stroke-width: 1.5;" x1="516" x2="516" y1="57.5839" y2="72.5839"/><polygon fill="#222266" points="512,62.5839,516,72.5839,520,62.5839,516,66.5839" style="stroke: #222266; stroke-width: 1.0;"/><text fill="#000000" font-family="Ubuntu" font-size="18" lengthAdjust="spacingAndGlyphs" textLength="56" x="20" y="29.1819">master</text><text fill="#000000" font-family="Ubuntu" font-size="18" lengthAdjust="spacingAndGlyphs" textLength="108" x="86" y="29.1819">development</text><text fill="#000000" font-family="Ubuntu" font-size="18" lengthAdjust="spacingAndGlyphs" textLength="103" x="204" y="29.1819">release/1.0.0</text><text fill="#000000" font-family="Ubuntu" font-size="18" lengthAdjust="spacingAndGlyphs" textLength="192" x="419.5" y="29.1819">feature/caso-de-uso-01</text><line style="stroke: #000000; stroke-width: 2.0;" x1="10" x2="10" y1="11.902" y2="330.7157"/><line style="stroke: #000000; stroke-width: 2.0;" x1="81" x2="81" y1="11.902" y2="330.7157"/><line style="stroke: #000000; stroke-width: 2.0;" x1="199" x2="199" y1="11.902" y2="330.7157"/><line style="stroke: #000000; stroke-width: 2.0;" x1="312" x2="312" y1="11.902" y2="330.7157"/><line style="stroke: #000000; stroke-width: 2.0;" x1="724" x2="724" y1="11.902" y2="330.7157"/><!--
+@startuml
+skinparam defaultFontName Ubuntu
+
+skinparam actorBorderColor #616161
+
+skinparam classArrowColor #616161
+skinparam classBackgroundColor #FFF9C4
+skinparam classBorderColor #616161
+
+skinparam componentArrowColor #616161
+skinparam componentBackgroundColor #FFF8E1
+skinparam componentBorderColor #616161
+
+skinparam nodeArrowColor #616161
+skinParam nodeBackgroundColor #E0F7FA
+skinParam nodeBorderColor #616161
+
+skinparam objectArrowColor #616161
+skinParam objectBackgroundColor #FFEBEE
+skinParam objectBorderColor #616161
+
+skinparam queueArrowColor #616161
+skinParam queueBackgroundColor #F3E5F5
+skinParam queueBorderColor #616161
+
+skinparam databaseArrowColor #616161
+skinParam databaseBackgroundColor #E0E0E0
+skinParam databaseBorderColor #616161
+
+skinparam frameBackgroundColor #E0F7FA
+skinparam frameBorderColor #616161
+
+skinparam entityBackgroundColor #F9FBE7
+skinparam entityBorderColor #616161
+
+skinparam participantBackgroundColor #E3F2FD
+skinparam participantBorderColor #616161
+
+skinparam noteBackgroundColor #FFECB3
+skinparam noteBorderColor #616161z
+
+skinparam activity {
+    FontColor          white
+    AttributeFontColor white
+    FontSize           17
+    AttributeFontSize  15
+    AttributeFontname  Droid Sans Mono
+    BackgroundColor    #527BC6
+    BorderColor        black
+    ArrowColor         #222266
+}
+|master|
+|development|
+|release/1.0.0|
+start
+|feature/caso-de-uso-01|
+  :[63ae94da] Adiciona cabeçalho a documentação;
+  :[b388c0e8] Atualiza o contrato REST para ...;
+  :[e38fc2d8] Adiciona controlador e rota do ...;
+  :[e38fc2d8] Adiciona controlador e rota do ...;
+stop
+@enduml
+
+PlantUML version 1.2018.13(Mon Nov 26 17:11:51 GMT 2018)
+(APACHE source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Java Version: 1.8.0_191-b12
+Operating System: Linux
+OS Version: 4.4.0-101-generic
+Default Encoding: UTF-8
+Language: en
+Country: US
+--></g></svg>

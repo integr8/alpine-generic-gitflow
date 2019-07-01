@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="104px" preserveAspectRatio="none" style="width:216px;height:104px;" version="1.1" viewBox="0 0 216 104" width="216px" zoomAndPan="magnify"><defs><filter height="300%" id="faomwgc2nzyea" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><ellipse cx="48.5" cy="42.5839" fill="#000000" filter="url(#faomwgc2nzyea)" rx="10" ry="10" style="stroke: none; stroke-width: 1.0;"/><ellipse cx="140.5" cy="82.5839" fill="none" filter="url(#faomwgc2nzyea)" rx="10" ry="10" style="stroke: #000000; stroke-width: 1.0;"/><ellipse cx="141" cy="83.0839" fill="#000000" filter="url(#faomwgc2nzyea)" rx="6" ry="6" style="stroke: none; stroke-width: 1.0;"/><line style="stroke: #222266; stroke-width: 1.5;" x1="48.5" x2="48.5" y1="52.5839" y2="57.5839"/><line style="stroke: #222266; stroke-width: 1.5;" x1="48.5" x2="140.5" y1="57.5839" y2="57.5839"/><line style="stroke: #222266; stroke-width: 1.5;" x1="140.5" x2="140.5" y1="57.5839" y2="72.5839"/><polygon fill="#222266" points="136.5,62.5839,140.5,72.5839,144.5,62.5839,140.5,66.5839" style="stroke: #222266; stroke-width: 1.0;"/><text fill="#000000" font-family="Ubuntu" font-size="18" lengthAdjust="spacingAndGlyphs" textLength="56" x="20" y="29.1819">master</text><text fill="#000000" font-family="Ubuntu" font-size="18" lengthAdjust="spacingAndGlyphs" textLength="108" x="86" y="29.1819">development</text><line style="stroke: #000000; stroke-width: 2.0;" x1="10" x2="10" y1="11.902" y2="92.5839"/><line style="stroke: #000000; stroke-width: 2.0;" x1="81" x2="81" y1="11.902" y2="92.5839"/><line style="stroke: #000000; stroke-width: 2.0;" x1="204" x2="204" y1="11.902" y2="92.5839"/><!--
+@startuml
+skinparam defaultFontName Ubuntu
+
+skinparam actorBorderColor #616161
+
+skinparam classArrowColor #616161
+skinparam classBackgroundColor #FFF9C4
+skinparam classBorderColor #616161
+
+skinparam componentArrowColor #616161
+skinparam componentBackgroundColor #FFF8E1
+skinparam componentBorderColor #616161
+
+skinparam nodeArrowColor #616161
+skinParam nodeBackgroundColor #E0F7FA
+skinParam nodeBorderColor #616161
+
+skinparam objectArrowColor #616161
+skinParam objectBackgroundColor #FFEBEE
+skinParam objectBorderColor #616161
+
+skinparam queueArrowColor #616161
+skinParam queueBackgroundColor #F3E5F5
+skinParam queueBorderColor #616161
+
+skinparam databaseArrowColor #616161
+skinParam databaseBackgroundColor #E0E0E0
+skinParam databaseBorderColor #616161
+
+skinparam frameBackgroundColor #E0F7FA
+skinparam frameBorderColor #616161
+
+skinparam entityBackgroundColor #F9FBE7
+skinparam entityBorderColor #616161
+
+skinparam participantBackgroundColor #E3F2FD
+skinparam participantBorderColor #616161
+
+skinparam noteBackgroundColor #FFECB3
+skinparam noteBorderColor #616161z
+
+skinparam activity {
+    FontColor          white
+    AttributeFontColor white
+    FontSize           17
+    AttributeFontSize  15
+    AttributeFontname  Droid Sans Mono
+    BackgroundColor    #527BC6
+    BorderColor        black
+    ArrowColor         #222266
+}
+|master|
+start
+|development|
+stop
+@enduml
+
+PlantUML version 1.2018.13(Mon Nov 26 17:11:51 GMT 2018)
+(APACHE source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Java Version: 1.8.0_191-b12
+Operating System: Linux
+OS Version: 4.4.0-101-generic
+Default Encoding: UTF-8
+Language: en
+Country: US
+--></g></svg>
