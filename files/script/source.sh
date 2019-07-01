@@ -13,7 +13,7 @@ if [ "$SOURCE_METHOD" == 'GIT' ]; then
     git config --global credential.helper '!f() { echo "password='${GIT_PASS}'"; }; f'
 
   elif [[ "${GIT_URL}" =~ ^git@ ]]; then 
-    [[ -f /home/${CONTAINER_USERNAME}/.ssh/id_rsa ]] && echo 'Para usar esse tipo de url, crie um volume com a chave!'
+    [[ ! -f /home/${CONTAINER_USERNAME}/.ssh/id_rsa ]] && echo 'Para usar esse tipo de url, crie um volume com a chave!'
     chmod 400 /home/${CONTAINER_USERNAME}/.ssh/id_rsa
   fi
 
